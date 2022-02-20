@@ -26,8 +26,7 @@ public class Consumer extends Thread {
                     } catch (InterruptedException e) {
                         finish();
                     }
-                }
-                else {
+                } else {
                     int index = random.nextInt(0, buffer.data.size());
                     int number = buffer.data.get(index);
                     buffer.data.remove(index);

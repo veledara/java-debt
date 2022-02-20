@@ -26,8 +26,7 @@ public class Manufacturer extends Thread {
                     } catch (InterruptedException e) {
                         finish();
                     }
-                }
-                else {
+                } else {
                     int number = random.nextInt(1, 10);
                     buffer.data.add(number);
                     buffer.notifyAll();
