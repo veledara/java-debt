@@ -3,9 +3,14 @@ package hw.mishanya;
 import java.util.Scanner;
 
 public class Main {
-    public static final Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) {
+    public static final Scanner in = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        int n = IsCorrect();
+        while (n < 2 || n > 50) {
+            System.out.println("The number must be in brackets [2; 50]. Try again.");
+            n = IsCorrect();
+        }
     }
 
     public static boolean IsNumeric(String str) {

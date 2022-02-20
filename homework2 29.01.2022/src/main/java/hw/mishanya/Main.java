@@ -6,7 +6,12 @@ public class Main {
     public static final Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
-        Buffer buffer = new Buffer(IsCorrect());
+        int n = IsCorrect();
+        while (n < 2 || n > 15) {
+            System.out.println("The number must be in brackets [2; 15]. Try again.");
+            n = IsCorrect();
+        }
+        Buffer buffer = new Buffer(n);
         Manufacturer manufacturer = new Manufacturer(buffer);
         Consumer consumer = new Consumer(buffer);
         manufacturer.start();
