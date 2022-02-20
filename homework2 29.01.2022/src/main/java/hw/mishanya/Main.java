@@ -6,6 +6,7 @@ public class Main {
     public static final Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("Enter the buffer's capacity");
         int n = IsCorrect();
         while (n < 2 || n > 15) {
             System.out.println("The number must be in brackets [2; 15]. Try again.");
