@@ -16,18 +16,20 @@ public class Main {
             n = IsInt();
         }
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter the " + (i+1) + " person lastname:");
+            System.out.println("Enter the " + (i + 1) + " person lastname:");
             String lastname = in.nextLine();
-            System.out.println("Enter the " + (i+1) + " person name:");
+            System.out.println("Enter the " + (i + 1) + " person name:");
             String name = in.nextLine();
-            System.out.println("Enter the " + (i+1) + " person age:");
+            System.out.println("Enter the " + (i + 1) + " person age:");
             Byte age = IsByte();
             group.add(new Person(lastname, name, age));
         }
-        group.sort(Comparator.comparing(Person::getLastname).thenComparing(Person::getFirstname).thenComparing(Person::getNegativeAge));
-        for (Person person:
-             group) {
-            System.out.println(person.toString());
+        group.sort(Comparator.comparing(Person::getLastname)
+                .thenComparing(Person::getFirstname)
+                .thenComparing(Person::getAge, Comparator.reverseOrder()));
+        for (Person person :
+                group) {
+            System.out.println(person);
         }
     }
 
@@ -48,6 +50,7 @@ public class Main {
         }
         return Integer.parseInt(str);
     }
+
     public static Byte IsByte() {
         String str = in.nextLine();
         while (IsNumeric(str)) {
