@@ -17,9 +17,20 @@ public class Person {
         return age;
     }
 
+    public Byte getNegativeAge() {
+        return (byte)-age;
+    }
+
     public Person(String lastname, String firstname, Byte age) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Lastname = '" + lastname + '\'' +
+                ", Name =' " + firstname + '\'' +
+                ", Age = " + age;
     }
 }
