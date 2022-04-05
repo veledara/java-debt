@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>hw5.mishanya.homework5/hw5.mishanya.homework5.HelloApplication</mainClass>
+                            <mainClass>hw5.mishanya.homework5/hw5.mishanya.homework5.AddressApp</mainClass>
                         </configuration>
                     </execution>
                 </executions>
