@@ -1,6 +1,5 @@
 package hw5.mishanya.homework5;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
