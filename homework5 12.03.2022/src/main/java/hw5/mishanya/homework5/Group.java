@@ -15,7 +15,7 @@ public class Group {
 
     private final static Group INSTANCE = new Group();
 
-    private Group(){
+    private Group() {
 
     }
 
