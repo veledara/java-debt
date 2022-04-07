@@ -18,6 +18,7 @@ public class AddressApp extends Application {
         stage.setResizable(false);
         stage.show();
     }
+
     public static void alertShow(String alertText) {
         Alert fail = new Alert(Alert.AlertType.INFORMATION);
         fail.setTitle("Ошибка");
