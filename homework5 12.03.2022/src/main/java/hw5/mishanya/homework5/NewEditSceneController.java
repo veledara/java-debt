@@ -26,13 +26,13 @@ public class NewEditSceneController {
     }
 
     @FXML
-    public void cancelButtonClick() {
+    private void cancelButtonClick() {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    public void okButtonClick() {
+    private void okButtonClick() {
         if (Objects.equals(((Stage) okButton.getScene().getWindow()).getTitle(), "New person")) {
             if (isNotValidToClickOK()) {
                 AddressApp.alertShow("Все поля должны быть заполнены. Попробуйте еще раз.");

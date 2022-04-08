@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -65,12 +66,10 @@ public class AddressAppController {
     }
 
     @FXML
-    public void editButtonClick() throws IOException {
+    private void editButtonClick() throws IOException {
         if (!table.getItems().isEmpty()) {
-            int selectedIndex = table.getSelectionModel().getSelectedIndex();
+                int selectedIndex = table.getSelectionModel().getSelectedIndex();
             if (selectedIndex != -1) {
-                newButton.setVisible(false);
-                editButton.setVisible(false);
                 FXMLLoader fxmlLoader = new FXMLLoader(AddressApp.class.getResource("new-edit-scene.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 500, 300);
                 stage.setTitle("Edit person " + selectedIndex);
@@ -86,9 +85,7 @@ public class AddressAppController {
     }
 
     @FXML
-    public void newButtonClick() throws IOException {
-        newButton.setVisible(false);
-        editButton.setVisible(false);
+    private void newButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AddressApp.class.getResource("new-edit-scene.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 300);
         stage.setTitle("New person");
@@ -96,7 +93,7 @@ public class AddressAppController {
     }
 
     @FXML
-    public void deleteButtonClick() {
+    private void deleteButtonClick() {
         if (!table.getItems().isEmpty()) {
             int selectedIndex = table.getSelectionModel().getSelectedIndex();
             if (selectedIndex != -1) {
@@ -113,14 +110,15 @@ public class AddressAppController {
     }
 
     private void newEditSceneCreator(Scene scene) {
+        if (stage.getModality() == Modality.NONE){
+            stage.initModality(Modality.APPLICATION_MODAL);
+        }
         stage.setScene(scene);
         stage.setResizable(false);
         stage.showAndWait();
         table.getItems().clear();
         initData();
         table.setItems(peopleData);
-        newButton.setVisible(true);
-        editButton.setVisible(true);
     }
 
     private void initData() {
